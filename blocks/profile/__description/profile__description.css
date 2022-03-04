@@ -5,14 +5,16 @@ font-size: 18px;
 line-height: 22px;
 color: #FFFFFF;
 margin: 0;
-
+margin-top: 16px;
+align-self: flex-start;
 }
 
 @media screen and (max-width: 660px){
     .profile__description{
+        align-self: auto;
+        max-width: 189px;
         font-size: 14px;
         line-height: 17px;
-        margin: 14px 0 0 -28px;
     }
     }
 
