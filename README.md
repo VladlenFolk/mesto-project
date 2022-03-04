@@ -7,4 +7,4 @@
 В этом проекте мы освоили создание pop up.
 
 **Ссылка на проект**
- <!-- https://vladlenfolk.github.io/russian-travel/index.html -->
+https://vladlenfolk.github.io/mesto-project/index.html
