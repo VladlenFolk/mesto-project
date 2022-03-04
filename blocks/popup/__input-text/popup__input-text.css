@@ -5,4 +5,11 @@ font-size: 14px;
 line-height: 17px;
 color: #000000;
 border: 0;
+width: 358px;
 }
+
+@media screen and (max-width: 660px){
+    .popup__input-text{
+        width: 238px;
+    }
+    }
