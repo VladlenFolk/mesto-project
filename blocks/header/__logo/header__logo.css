@@ -1,0 +1,15 @@
+.header__logo{
+    position: relative;
+    width: 142px;
+    height: 33px;
+    background: url(../../../images/logo.png) no-repeat left ;    
+  }
+  
+
+  @media screen and (max-width: 660px){
+    .header__logo{
+      width: 104px;
+      height: 24px;
+      background: url(../../../images/logo2.png) no-repeat left ;  
+    }
+    }

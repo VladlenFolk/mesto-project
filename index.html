@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Проект Место" />
+    <meta name="author" content="Владлен Фалин" />
+    <meta name="keyword" content="проект Место, Карачаевск, Эльбрус, Домбай" />
+    <title>Mesto</title>
+    <link rel="stylesheet" href="pages/index.css" />
+  </head>
+  <body class="body">
+    <div class="page">
+      <header class="header">
+        <div class="header__logo"></div>
+      </header>
+      <main>
+        <section class="profile">
+          <div class="profile__container">
+            <img class="profile__avatar" src="images/custo.jpg" alt="Кусто" />
+            <div class="profile__info">
+              <div class="profile__name-container">
+                <h2 class="profile__name">Жак-Ив Кусто</h2>
+                <button class="link-opacity profile__edit-button"></button>
+              </div>
+              <p class="profile__description">Исследователь океана</p>
+            </div>
+          </div>
+          <button class="link-opacity profile__add-button"></button>
+        </section>
+        <section class="block"  aria-label="карточки мест">
+          <ul class="block__list">
+            <li class="block__card">
+              <div class="block__place">
+                <img src="images/karachaevsk.jpg" class="block__place-image" alt="карачаевск">
+                <div class="block__place-container">
+                  <p class="block__place-name">Карачаевск</p>
+                  <button type="button" class="block__place-like link-opacity"></button>
+                </div>
+              </div>
+            </li>
+            <li class="block__card">
+              <div class="block__place">
+                <img src="images/elbrus.jpg" class="block__place-image" alt="карачаевск">
+                <div class="block__place-container">
+                  <p class="block__place-name">Эльбрус</p>
+                  <button type="button" class="block__place-like link-opacity"></button>
+                </div>
+              </div>
+            </li>
+            <li class="block__card">
+              <div class="block__place">
+                <img src="images/dombai.jpg" class="block__place-image" alt="карачаевск">
+                <div class="block__place-container">
+                  <p class="block__place-name">Домбай</p>
+                  <button type="button" class="block__place-like_active block__place-like"></button>
+                </div>
+              </div>
+            </li>
+            <li class="block__card">
+              <div class="block__place">
+                <img src="images/elbrus.jpg" class="block__place-image" alt="карачаевск">
+                <div class="block__place-container">
+                  <p class="block__place-name">Эльбрус</p>
+                  <button type="button" class="block__place-like link-opacity"></button>
+                </div>
+              </div>
+            </li>
+            <li class="block__card">
+              <div class="block__place">
+                <img src="images/dombai.jpg" class="block__place-image" alt="карачаевск">
+                <div class="block__place-container">
+                  <p class="block__place-name">Домбай</p>
+                  <button type="button" class="block__place-like link-opacity"></button>
+                </div>
+              </div>
+            </li>
+            <li class="block__card">
+              <div class="block__place">
+                <img src="images/karachaevsk.jpg" class="block__place-image" alt="карачаевск">
+                <div class="block__place-container">
+                  <p class="block__place-name">Карачаево-Черкесия</p>
+                  <button type="button" class="block__place-like link-opacity"></button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section class="popup popup_opened">
+        <div class="popup__container">
+          <button class="popup__close-button link-opacity"></button>
+          <form class="popup__form">
+            <h2 class="popup__form-header">Редактировать профиль</h2>
+            <fieldset class="popup__input-container popup__input-container_space">
+              <input type="text" value="Жак-Ив Кусто" class="popup__input-text">
+            </fieldset>
+            <fieldset class="popup__input-container">
+              <input type="text" value="Исследователь океана" class="popup__input-text">
+            </fieldset>
+            <fieldset class="popup__handlers">
+              <input type="button" class="popup__save-button button-gray" value="Сохранить">
+            </fieldset>
+          </form>
+        </div>
+      </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">© 2022 Mesto Russia</p>
+      </footer>
+    </div>
+  </body>
+</html>
