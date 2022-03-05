@@ -1,16 +1,15 @@
-.profile__add-button{
-padding: 23px 73px;
-background: url(../../../images/plus1.svg) no-repeat center;
-cursor: pointer;
-border: 2px solid #FFFFFF;
-box-sizing: border-box;
-border-radius: 2px;
-    }
+.profile__add-button {
+  padding: 23px 73px;
+  background: url(../../../images/plus1.svg) no-repeat center;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
 
-
-@media screen and (max-width: 660px){
-    .profile__add-button{
-        padding: 23px 139px;
-        background: url(../../../images/plus2.svg) no-repeat center;
-    }
-    }
+@media screen and (max-width: 660px) {
+  .profile__add-button {
+    padding: 23px 139px;
+    background: url(../../../images/plus2.svg) no-repeat center;
+  }
+}

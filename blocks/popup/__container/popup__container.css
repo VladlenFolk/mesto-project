@@ -1,11 +1,11 @@
-.popup__container{
-    min-width: 470px;
-    display: flex;
-    flex-direction: column;
-    
+.popup__container {
+  min-width: 470px;
+  display: flex;
+  flex-direction: column;
 }
 
-@media screen and (max-width: 660px){
-    .popup__container{min-width: 282px;
-    }
-    }
+@media screen and (max-width: 660px) {
+  .popup__container {
+    min-width: 282px;
+  }
+}

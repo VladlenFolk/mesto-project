@@ -1,11 +1,11 @@
-.profile__container{
-    display: flex;
-    align-items: center;
-    text-align: center;
+.profile__container {
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
 
-@media screen and (max-width: 660px){
-    .profile__container{
-        flex-direction: column;
-    }
-    }
+@media screen and (max-width: 660px) {
+  .profile__container {
+    flex-direction: column;
+  }
+}
