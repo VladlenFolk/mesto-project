@@ -12,97 +12,148 @@
   <body class="body">
     <div class="page">
       <header class="header">
-        <div class="header__logo"></div>
+        <img
+          src="images/logo1.svg"
+          alt="логотип проекта место"
+          class="header__logo"
+        />
       </header>
       <main>
         <section class="profile">
           <div class="profile__container">
-            <img class="profile__avatar" src="images/custo.jpg" alt="Кусто" />
+            <img class="profile__avatar" src="images/custo.jpg" alt="Аватар" />
             <div class="profile__info">
               <div class="profile__name-container">
-                <h2 class="profile__name">Жак-Ив Кусто</h2>
-                <button class="link-opacity profile__edit-button"></button>
+                <h1 class="profile__name">Жак-Ив Кусто</h1>
+                <button
+                  type="button"
+                  class="button-opacity profile__edit-button"
+                ></button>
               </div>
               <p class="profile__description">Исследователь океана</p>
             </div>
           </div>
-          <button class="link-opacity profile__add-button"></button>
+          <button
+            type="button"
+            class="button-opacity profile__add-button"
+          ></button>
         </section>
-        <section class="block"  aria-label="карточки мест">
+        <section class="block" aria-label="карточки мест">
           <ul class="block__list">
             <li class="block__card">
-              <div class="block__place">
-                <img src="images/karachaevsk.jpg" class="block__place-image" alt="карачаевск">
-                <div class="block__place-container">
-                  <p class="block__place-name">Карачаевск</p>
-                  <button type="button" class="block__place-like link-opacity"></button>
-                </div>
+              <img
+                src="images/karachaevsk.jpg"
+                class="block__place-image"
+                alt="карачаевск"
+              />
+              <div class="block__place-container">
+                <h2 class="block__place-name">Карачаевск</h2>
+                <button
+                  type="button"
+                  class="block__place-like button-opacity"
+                ></button>
               </div>
             </li>
             <li class="block__card">
-              <div class="block__place">
-                <img src="images/elbrus.jpg" class="block__place-image" alt="карачаевск">
-                <div class="block__place-container">
-                  <p class="block__place-name">Эльбрус</p>
-                  <button type="button" class="block__place-like link-opacity"></button>
-                </div>
+              <img
+                src="images/elbrus.jpg"
+                class="block__place-image"
+                alt="карачаевск"
+              />
+              <div class="block__place-container">
+                <h2 class="block__place-name">Эльбрус</h2>
+                <button
+                  type="button"
+                  class="block__place-like button-opacity"
+                ></button>
               </div>
             </li>
             <li class="block__card">
-              <div class="block__place">
-                <img src="images/dombai.jpg" class="block__place-image" alt="карачаевск">
-                <div class="block__place-container">
-                  <p class="block__place-name">Домбай</p>
-                  <button type="button" class="block__place-like_active block__place-like"></button>
-                </div>
+              <img
+                src="images/dombai.jpg"
+                class="block__place-image"
+                alt="карачаевск"
+              />
+              <div class="block__place-container">
+                <h2 class="block__place-name">Домбай</h2>
+                <button
+                  type="button"
+                  class="block__place-like_active block__place-like"
+                ></button>
               </div>
             </li>
             <li class="block__card">
-              <div class="block__place">
-                <img src="images/elbrus.jpg" class="block__place-image" alt="карачаевск">
-                <div class="block__place-container">
-                  <p class="block__place-name">Эльбрус</p>
-                  <button type="button" class="block__place-like link-opacity"></button>
-                </div>
+              <img
+                src="images/elbrus.jpg"
+                class="block__place-image"
+                alt="карачаевск"
+              />
+              <div class="block__place-container">
+                <h2 class="block__place-name">Эльбрус</h2>
+                <button
+                  type="button"
+                  class="block__place-like button-opacity"
+                ></button>
               </div>
             </li>
             <li class="block__card">
-              <div class="block__place">
-                <img src="images/dombai.jpg" class="block__place-image" alt="карачаевск">
-                <div class="block__place-container">
-                  <p class="block__place-name">Домбай</p>
-                  <button type="button" class="block__place-like link-opacity"></button>
-                </div>
+              <img
+                src="images/dombai.jpg"
+                class="block__place-image"
+                alt="карачаевск"
+              />
+              <div class="block__place-container">
+                <h2 class="block__place-name">Домбай</h2>
+                <button
+                  type="button"
+                  class="block__place-like button-opacity"
+                ></button>
               </div>
             </li>
             <li class="block__card">
-              <div class="block__place">
-                <img src="images/karachaevsk.jpg" class="block__place-image" alt="карачаевск">
-                <div class="block__place-container">
-                  <p class="block__place-name">Карачаево-Черкесия</p>
-                  <button type="button" class="block__place-like link-opacity"></button>
-                </div>
+              <img
+                src="images/karachaevsk.jpg"
+                class="block__place-image"
+                alt="карачаевск"
+              />
+              <div class="block__place-container">
+                <h2 class="block__place-name">Карачаево-Черкесия</h2>
+                <button
+                  type="button"
+                  class="block__place-like button-opacity"
+                ></button>
               </div>
             </li>
           </ul>
         </section>
-        <section class="popup popup_opened">
-        <div class="popup__container">
-          <button class="popup__close-button link-opacity"></button>
-          <form class="popup__form">
-            <h2 class="popup__form-header">Редактировать профиль</h2>
-            <fieldset class="popup__input-container popup__input-container_space">
-              <input type="text" value="Жак-Ив Кусто" class="popup__input-text">
-            </fieldset>
-            <fieldset class="popup__input-container">
-              <input type="text" value="Исследователь океана" class="popup__input-text">
-            </fieldset>
-            <fieldset class="popup__handlers">
-              <input type="button" class="popup__save-button button-gray" value="Сохранить">
-            </fieldset>
-          </form>
+        <div class="popup popup_opened">
+          <div class="popup__container">
+            <button
+              type="button"
+              class="popup__close-button button-opacity"
+            ></button>
+            <form class="popup__form" name="popup">
+              <h2 class="popup__form-header">Редактировать профиль</h2>
+              <fieldset class="popup__input-container">
+                <input
+                  name="name"
+                  type="text"
+                  value=""
+                  class="popup__item popup__item_el_text popup__item_space"
+                />
+                <input
+                  name="description"
+                  type="text"
+                  value=""
+                  class="popup__item popup__item_el_text"
+                />
+                <button type="button" class="popup__save-button">
+                  Сохранить
+                </button>
+              </fieldset>
+            </form>
+          </div>
         </div>
-      </section>
       </main>
       <footer class="footer">
         <p class="footer__copyright">© 2022 Mesto Russia</p>

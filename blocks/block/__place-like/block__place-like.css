@@ -1,7 +1,7 @@
 .block__place-like{
    width: 22px; 
    height: 19px;
-   background: url(../../../images/like.png) no-repeat;
+   background: url(../../../images/like.svg) no-repeat;
    background-size: cover;
    cursor: pointer;
    border-width: 0;
