@@ -25,6 +25,7 @@
             <div class="profile__info">
               <div class="profile__name-container">
                 <h1 class="profile__name">Жак-Ив Кусто</h1>
+                <!-- кнопка редактирования профиля -->
                 <button
                   type="button"
                   class="button-opacity profile__edit-button"
@@ -33,6 +34,7 @@
               <p class="profile__description">Исследователь океана</p>
             </div>
           </div>
+          <!-- кнопка добавления картинки -->
           <button
             type="button"
             class="button-opacity profile__add-button"
@@ -42,6 +44,10 @@
           <ul class="block__list">
             <li>
               <div class="block__card">
+                <button
+                type="button"
+                class="block__trash button-opacity">
+                </button>
                 <img
                   src="images/karachaevsk.jpg"
                   class="block__place-image"
@@ -58,6 +64,10 @@
             </li>
             <li>
               <div class="block__card">
+                <button
+                type="button"
+                class="block__trash button-opacity">
+                </button>
                 <img
                   src="images/elbrus.jpg"
                   class="block__place-image"
@@ -74,6 +84,10 @@
             </li>
             <li>
               <div class="block__card">
+                <button
+                type="button"
+                class="block__trash button-opacity">
+                </button>
                 <img
                   src="images/dombai.jpg"
                   class="block__place-image"
@@ -90,6 +104,10 @@
             </li>
             <li>
               <div class="block__card">
+                <button
+                type="button"
+                class="block__trash button-opacity">
+                </button>
                 <img
                   src="images/elbrus.jpg"
                   class="block__place-image"
@@ -106,6 +124,11 @@
             </li>
             <li>
               <div class="block__card">
+                <button
+                type="button"
+                class="block__trash button-opacity"
+                >
+                </button>
                 <img
                   src="images/dombai.jpg"
                   class="block__place-image"
@@ -122,6 +145,10 @@
             </li>
             <li>
               <div class="block__card">
+                <button
+                type="button"
+                class="block__trash button-opacity">
+                </button>
                 <img
                   src="images/karachaevsk.jpg"
                   class="block__place-image"
@@ -138,7 +165,8 @@
             </li>
           </ul>
         </section>
-        <div class="popup popup_opened">
+        <!-- Блок с элементом поп-ап -->
+        <div class="popup">
           <div class="popup__container">
             <button
               type="button"
@@ -151,16 +179,47 @@
                   name="name"
                   type="text"
                   value=""
-                  class="popup__item popup__item_el_text"
+                  class="popup__item popup__item_el_name"
                 />
                 <input
                   name="description"
                   type="text"
                   value=""
-                  class="popup__item popup__item_el_text"
+                  class="popup__item popup__item_el_job"
                 />
                 <button type="submit" class="popup__save-button">
                   Сохранить
+                </button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <!-- Блок с элементом поп-ап место-->
+        <div class="popup-place">
+          <div class="popup-place__container">
+            <button
+              type="button"
+              class="popup-place__close-button button-opacity"
+            ></button>
+            <form class="popup-place__form" name="popup">
+              <h2 class="popup-place__form-header">Новое место</h2>
+              <fieldset class="popup-place__input-container">
+                <input
+                  name="name"
+                  type="text"
+                  value=""
+                  class="popup-place__item popup__item_el_name"
+                  placeholder="Название"
+                />
+                <input
+                  name="description"
+                  type="text"
+                  value=""
+                  class="popup-place__item popup-place__item_el_job"
+                  placeholder="Ссылка на картинку"
+                />
+                <button type="submit" class="popup-place__save-button">
+                  Создать
                 </button>
               </fieldset>
             </form>
@@ -171,5 +230,6 @@
         <p class="footer__copyright">© 2022 Mesto Russia</p>
       </footer>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
