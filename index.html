@@ -40,129 +40,10 @@
             class="button-opacity profile__add-button"
           ></button>
         </section>
+
         <section class="block" aria-label="карточки мест">
           <ul class="block__list">
-            <li>
-              <div class="block__card">
-                <button
-                type="button"
-                class="block__trash button-opacity">
-                </button>
-                <img
-                  src="images/karachaevsk.jpg"
-                  class="block__place-image"
-                  alt="карачаевск"
-                />
-                <div class="block__place-container">
-                  <h2 class="block__place-name">Карачаевск</h2>
-                  <button
-                    type="button"
-                    class="block__place-like button-opacity"
-                  ></button>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="block__card">
-                <button
-                type="button"
-                class="block__trash button-opacity">
-                </button>
-                <img
-                  src="images/elbrus.jpg"
-                  class="block__place-image"
-                  alt="карачаевск"
-                />
-                <div class="block__place-container">
-                  <h2 class="block__place-name">Эльбрус</h2>
-                  <button
-                    type="button"
-                    class="block__place-like button-opacity"
-                  ></button>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="block__card">
-                <button
-                type="button"
-                class="block__trash button-opacity">
-                </button>
-                <img
-                  src="images/dombai.jpg"
-                  class="block__place-image"
-                  alt="карачаевск"
-                />
-                <div class="block__place-container">
-                  <h2 class="block__place-name">Домбай</h2>
-                  <button
-                    type="button"
-                    class="block__place-like_active block__place-like"
-                  ></button>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="block__card">
-                <button
-                type="button"
-                class="block__trash button-opacity">
-                </button>
-                <img
-                  src="images/elbrus.jpg"
-                  class="block__place-image"
-                  alt="карачаевск"
-                />
-                <div class="block__place-container">
-                  <h2 class="block__place-name">Эльбрус</h2>
-                  <button
-                    type="button"
-                    class="block__place-like button-opacity"
-                  ></button>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="block__card">
-                <button
-                type="button"
-                class="block__trash button-opacity"
-                >
-                </button>
-                <img
-                  src="images/dombai.jpg"
-                  class="block__place-image"
-                  alt="карачаевск"
-                />
-                <div class="block__place-container">
-                  <h2 class="block__place-name">Домбай</h2>
-                  <button
-                    type="button"
-                    class="block__place-like button-opacity"
-                  ></button>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="block__card">
-                <button
-                type="button"
-                class="block__trash button-opacity">
-                </button>
-                <img
-                  src="images/karachaevsk.jpg"
-                  class="block__place-image"
-                  alt="карачаевск"
-                />
-                <div class="block__place-container">
-                  <h2 class="block__place-name">Карачаево-Черкесия</h2>
-                  <button
-                    type="button"
-                    class="block__place-like button-opacity"
-                  ></button>
-                </div>
-              </div>
-            </li>
+            
           </ul>
         </section>
         <!-- Блок с элементом поп-ап -->
@@ -201,21 +82,21 @@
               type="button"
               class="popup-place__close-button button-opacity"
             ></button>
-            <form class="popup-place__form" name="popup">
+            <form class="popup-place__form" name="popup-place">
               <h2 class="popup-place__form-header">Новое место</h2>
               <fieldset class="popup-place__input-container">
                 <input
-                  name="name"
+                  name="place"
                   type="text"
                   value=""
-                  class="popup-place__item popup__item_el_name"
+                  class="popup-place__item popup__item_el_place"
                   placeholder="Название"
                 />
                 <input
-                  name="description"
+                  name="link"
                   type="text"
                   value=""
-                  class="popup-place__item popup-place__item_el_job"
+                  class="popup-place__item popup-place__item_el_link"
                   placeholder="Ссылка на картинку"
                 />
                 <button type="submit" class="popup-place__save-button">
@@ -230,6 +111,25 @@
         <p class="footer__copyright">© 2022 Mesto Russia</p>
       </footer>
     </div>
+    <!-- Заготовка списка карточек -->
+    <template id="block">
+      <li>
+        <div class="block__card">
+          <button type="button" class="block__trash button-opacity"></button>
+          <img
+            src=""
+            class="block__place-image"            
+          />
+          <div class="block__place-container">
+            <h2 class="block__place-name"></h2>
+            <button
+              type="button"
+              class="block__place-like button-opacity"
+            ></button>
+          </div>
+        </div>
+      </li>
+    </template>
     <script src="script.js"></script>
   </body>
 </html>
