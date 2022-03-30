@@ -1,0 +1,14 @@
+.popup-place__close-button {
+  padding: 16px;
+  align-self: flex-end;
+  background: url(../../../images/close-button1.svg) no-repeat;
+  border: 0;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 660px) {
+  .popup-place__close-button {
+    padding: 10px;
+    background: url(../../../images/close-button2.svg) no-repeat;
+  }
+}
