@@ -1,10 +1,10 @@
-.popup-image__description{
-    max-width: 291px;
+.popup__description {
+  max-width: 291px;
   margin-top: 10px;
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
   align-self: flex-start;
-  color: #FFFFFF;
+  color: #ffffff;
   font-family: "Inter", Arial, Helvetica, sans-serif;
 }

@@ -4,11 +4,16 @@
   background: url(../../../images/close-button1.svg) no-repeat;
   border: 0;
   cursor: pointer;
+  position: absolute;
+  top: -40px;
+  right: -40px;
 }
 
 @media screen and (max-width: 660px) {
   .popup__close-button {
     padding: 10px;
+    top: -28px;
+    right: 0px;
     background: url(../../../images/close-button2.svg) no-repeat;
   }
 }

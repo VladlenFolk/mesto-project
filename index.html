@@ -44,22 +44,18 @@
           <ul class="block__list"></ul>
         </section>
         <!-- Модальное окно с картинкой -->
-        <div class="popup-image">
-          <div class="popup-image__container">
+        <div class="popup popup_value_image">
+          <div class="popup__container">
             <button
               type="button"
-              class="popup-image__button button-opacity"
+              class="popup__close-button button-opacity"
             ></button>
-            <img
-              src="#"
-              class="popup-image__picture"
-              alt=""
-            />
-            <p class="popup-image__description"></p>
+            <img src="#" class="popup__picture" alt="" />
+            <p class="popup__description"></p>
           </div>
         </div>
-        <!-- Блок с элементом поп-ап -->
-        <div class="popup">
+        <!-- Блок с элементом поп-ап профиль-->
+        <div class="popup popup_value_profile">
           <div class="popup__container">
             <button
               type="button"
@@ -71,13 +67,13 @@
                 <input
                   name="name"
                   type="text"
-                  value=""
+                  value="Жак-Ив Кусто"
                   class="popup__item popup__item_el_name"
                 />
                 <input
                   name="description"
                   type="text"
-                  value=""
+                  value="Исследователь океана"
                   class="popup__item popup__item_el_job"
                 />
                 <button type="submit" class="popup__save-button">
@@ -88,30 +84,30 @@
           </div>
         </div>
         <!-- Блок с элементом поп-ап место-->
-        <div class="popup-place">
-          <div class="popup-place__container">
+        <div class="popup popup_value_place">
+          <div class="popup__container">
             <button
               type="button"
-              class="popup-place__close-button button-opacity"
+              class="popup__close-button button-opacity"
             ></button>
-            <form class="popup-place__form" name="popup-place">
-              <h2 class="popup-place__form-header">Новое место</h2>
-              <fieldset class="popup-place__input-container">
+            <form class="popup__form" name="popup">
+              <h2 class="popup__form-header">Новое место</h2>
+              <fieldset class="popup__input-container">
                 <input
                   name="place"
                   type="text"
                   value=""
-                  class="popup-place__item popup-place__item_el_place"
+                  class="popup__item popup__item_el_place"
                   placeholder="Название"
                 />
                 <input
                   name="link"
                   type="text"
                   value=""
-                  class="popup-place__item popup-place__item_el_link"
+                  class="popup__item popup__item_el_link"
                   placeholder="Ссылка на картинку"
                 />
-                <button type="submit" class="popup-place__save-button">
+                <button type="submit" class="popup__save-button">
                   Создать
                 </button>
               </fieldset>
@@ -139,6 +135,6 @@
         </div>
       </li>
     </template>
-    <script src="script.js"></script>
+    <script src="scripts/script.js"></script>
   </body>
 </html>
