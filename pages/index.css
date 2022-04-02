@@ -30,6 +30,7 @@
 @import url(../blocks/popup/_value/popup_value_image.css);
 @import url(../blocks/popup/__description/popup__description.css);
 @import url(../blocks/popup/__picture/popup__picture.css);
+@import url(../blocks/popup/__form/_type/popup__form_type_place.css);
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__add-button/profile__addbutton.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
@@ -39,17 +40,3 @@
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__name-container/profile__name-container.css);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
