@@ -1,4 +1,4 @@
-//переменные попапа профиль 
+//переменные попапа профиль
 const profile = document.querySelector(".profile");
 const openProfileButton = profile.querySelector(".profile__edit-button");
 const popUpProfile = document.querySelector(".popup_value_profile");
@@ -11,7 +11,7 @@ const valueProfileJob = popUpProfile.querySelector(".popup__item_el_job");
 
 //Переменные template и места добавления карточек
 const popUpPlace = document.querySelector(".popup_value_place");
-const formPlace = popUpPlace.querySelector('.popup__form_type_place');
+const formPlace = popUpPlace.querySelector(".popup__form_type_place");
 const blockTemplate = document.querySelector("#block").content;
 const blockList = document.querySelector(".block__list");
 const valuePlace = popUpPlace.querySelector(".popup__item_el_place");
@@ -86,20 +86,20 @@ const initialCards = [
 ];
 
 // Функция добавления лайка
-function addLike (evt){
+function addLike(evt) {
   evt.target.classList.toggle("block__place-like_active");
 }
 
 // Функция удаления карточки
-function deleteCard (){
-  const itemList = document.querySelector(".block__trash").closest('.list');
-  itemList.remove();
+function deleteCard(item) {
+  const trashElement = item.querySelector(".block__trash").closest(".list");
+  trashElement.remove();
 }
 
 //Функция добавления попапа с картинкой
-function openImg(name, link) { 
+function openImg(name, link) {
   const imgDescription = popUpImageDescription;
-  const imgLink =  popUpImageOpen;
+  const imgLink = popUpImageOpen;
   imgDescription.textContent = name;
   imgLink.src = link;
   imgLink.alt = name;
@@ -108,28 +108,29 @@ function openImg(name, link) {
 
 //Функция создания карточки
 function createCard(name, link) {
-    const cardElement = blockTemplate.querySelector(".list").cloneNode(true);
-    const blockElementImage = cardElement.querySelector(".block__place-image");
-    blockElementImage.src = link;
-    blockElementImage.alt = name;
-    cardElement.querySelector('.block__place-name').textContent = name;
-    //обработчик кнопки лайк
-    cardElement
-      .querySelector(".block__place-like")
-      .addEventListener("click", addLike);
-    //Обработчик удаления карточки
-    const trashElement = cardElement.querySelector(".block__trash");
-    trashElement.addEventListener("click", deleteCard);
-    //обработчик попапа с картинкой
-    blockElementImage
-    .addEventListener("click", () => {
-      openImg(name, link);
-});
-return cardElement;
+  const cardElement = blockTemplate.querySelector(".list").cloneNode(true);
+  const blockElementImage = cardElement.querySelector(".block__place-image");
+  blockElementImage.src = link;
+  blockElementImage.alt = name;
+  cardElement.querySelector(".block__place-name").textContent = name;
+  //обработчик кнопки лайк
+  cardElement
+    .querySelector(".block__place-like")
+    .addEventListener("click", addLike);
+  //Обработчик удаления карточки
+  const trashButton = cardElement.querySelector(".block__trash");
+  trashButton.addEventListener("click", () => {
+    deleteCard(cardElement);
+  });
+  //обработчик попапа с картинкой
+  blockElementImage.addEventListener("click", () => {
+    openImg(name, link);
+  });
+  return cardElement;
 }
 
 //Функция для добавления карточек в начало
-function renderCard(name, link){
+function renderCard(name, link) {
   blockList.prepend(createCard(name, link));
 }
 
@@ -142,7 +143,7 @@ initialCards.forEach(function (item) {
 
 //Функция добавления новой картинки из данных формы
 function addNewCard(evt) {
-  evt.preventDefault(); 
+  evt.preventDefault();
   renderCard(valuePlace.value, valueLink.value);
   closePopup(popUpPlace);
 }
@@ -152,8 +153,6 @@ openButtonPlace.addEventListener("click", () => {
   openPopup(popUpPlace);
   formPlace.reset(); //очищаем форму при каждом открытии
 });
-
-
 
 closeButtonPlace.addEventListener("click", () => {
   closePopup(popUpPlace);
