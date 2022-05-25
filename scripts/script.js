@@ -8,7 +8,6 @@ const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__description");
 const valueProfileName = popUpProfile.querySelector(".popup__item_el_name");
 const valueProfileJob = popUpProfile.querySelector(".popup__item_el_job");
-
 //Переменные template и места добавления карточек
 const popUpPlace = document.querySelector(".popup_value_place");
 const formPlace = popUpPlace.querySelector(".popup__form_type_place");
@@ -28,12 +27,38 @@ const popUpImageOpen = popUpImage.querySelector(".popup__picture");
 const popUpImageCloseButton = popUpImage.querySelector(".popup__close-button");
 const popUpImageDescription = popUpImage.querySelector(".popup__description");
 
+//все попапы
+const popups = document.querySelectorAll(".popup");
+
+//Функция закрытия попапа по клику вне модального окна
+function closePopupOnOverlay(evt) {
+  if (evt.target.classList.contains("popup_opened")) {
+    closePopup();
+  }
+}
+
+//функция закрыития попапа профиль по нажатию на кнопку escape
+function closePopupOnEsc(evt) {
+  if (evt.key === "Escape") {
+    closePopup();
+  }
+}
+
 //универсальные функции открытия/закрытия попапа
 function openPopup(popupName) {
   popupName.classList.add("popup_opened");
+  document.addEventListener("keydown", closePopupOnEsc);
+  document.addEventListener("click", closePopupOnOverlay);
 }
-function closePopup(popupName) {
-  popupName.classList.remove("popup_opened");
+
+function closePopup() {
+  popups.forEach((el) => {
+    if (el.classList.contains("popup_opened")) {
+      el.classList.remove("popup_opened");
+      document.removeEventListener("keydown", closePopupOnEsc);
+      document.removeEventListener("click", closePopupOnOverlay);
+    }
+  });
 }
 
 //работаем с попапом профиль
@@ -42,10 +67,10 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = valueName.value;
   profileJob.textContent = valueJob.value;
-  closePopup(popUpProfile);
+  closePopup();
 }
 closeProfileButton.addEventListener("click", () => {
-  closePopup(popUpProfile);
+  closePopup();
 });
 popUpProfile.addEventListener("submit", handleProfileFormSubmit);
 
@@ -145,7 +170,7 @@ initialCards.forEach(function (item) {
 function addNewCard(evt) {
   evt.preventDefault();
   renderCard(valuePlace.value, valueLink.value);
-  closePopup(popUpPlace);
+  closePopup();
 }
 
 // Закрытие/открытие попапа место
@@ -155,7 +180,7 @@ openButtonPlace.addEventListener("click", () => {
 });
 
 closeButtonPlace.addEventListener("click", () => {
-  closePopup(popUpPlace);
+  closePopup();
 });
 
 //Обработчик отправки формы место
@@ -163,5 +188,5 @@ popUpPlace.addEventListener("submit", addNewCard);
 
 //Кнопка закрытия попапа с картинкой
 popUpImageCloseButton.addEventListener("click", () => {
-  closePopup(popUpImage);
+  closePopup();
 });

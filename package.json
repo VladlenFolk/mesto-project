@@ -1,0 +1,19 @@
+{
+  "name": "yandex_praktikum",
+  "version": "0.0.1",
+  "description": "Данный проект позволит вам настроить свой профиль и добавить понравившиеся вам фотографии.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VladlenFolk/mesto-project.git"
+  },
+  "author": "Vlad Falin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VladlenFolk/mesto-project/issues"
+  },
+  "homepage": "https://github.com/VladlenFolk/mesto-project#readme"
+}
