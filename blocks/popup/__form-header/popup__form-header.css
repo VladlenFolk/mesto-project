@@ -6,14 +6,15 @@
   line-height: 29px;
   color: #000000;
   margin: 0;
-  padding: 34px 0 54px;
+  padding: 34px 0 54px 36px;
   box-sizing: border-box;
+  align-self: start;
 }
 
 @media screen and (max-width: 660px) {
   .popup__form-header {
     font-size: 18px;
     line-height: 22px;
-    padding: 25px 0 75px;
+    padding: 25px 0 75px 22px;
   }
 }

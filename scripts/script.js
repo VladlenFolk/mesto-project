@@ -27,6 +27,7 @@ const popUpImageOpen = popUpImage.querySelector(".popup__picture");
 const popUpImageCloseButton = popUpImage.querySelector(".popup__close-button");
 const popUpImageDescription = popUpImage.querySelector(".popup__description");
 
+
 //все попапы
 const popups = document.querySelectorAll(".popup");
 
@@ -46,12 +47,19 @@ function closePopupOnEsc(evt) {
 
 //универсальные функции открытия/закрытия попапа
 function openPopup(popupName) {
+  enableValidation(validationConfiguration);
   popupName.classList.add("popup_opened");
   document.addEventListener("keydown", closePopupOnEsc);
   document.addEventListener("click", closePopupOnOverlay);
 }
 
 function closePopup() {
+  isPopupOpened();
+  disableValidation(validationConfiguration);
+}
+
+//проверяем открыт ли попап
+function isPopupOpened() {
   popups.forEach((el) => {
     if (el.classList.contains("popup_opened")) {
       el.classList.remove("popup_opened");
@@ -69,6 +77,7 @@ function handleProfileFormSubmit(evt) {
   profileJob.textContent = valueJob.value;
   closePopup();
 }
+
 closeProfileButton.addEventListener("click", () => {
   closePopup();
 });
@@ -76,9 +85,9 @@ popUpProfile.addEventListener("submit", handleProfileFormSubmit);
 
 //Открытие профиля и заполнение инпутов содержимым
 function editProfile() {
-  openPopup(popUpProfile);
   valueProfileName.value = profileName.textContent;
   valueProfileJob.value = profileJob.textContent;
+  openPopup(popUpProfile);
 }
 openProfileButton.addEventListener("click", editProfile);
 
@@ -175,8 +184,8 @@ function addNewCard(evt) {
 
 // Закрытие/открытие попапа место
 openButtonPlace.addEventListener("click", () => {
-  openPopup(popUpPlace);
   formPlace.reset(); //очищаем форму при каждом открытии
+  openPopup(popUpPlace);
 });
 
 closeButtonPlace.addEventListener("click", () => {
@@ -190,3 +199,137 @@ popUpPlace.addEventListener("submit", addNewCard);
 popUpImageCloseButton.addEventListener("click", () => {
   closePopup();
 });
+
+//валидация
+const validationConfiguration = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__item",
+  submitButtonSelector: ".popup__save-button",
+  inactiveButtonClass: "popup__save-button_inactive",
+  inputErrorClass: "popup__item_type_error",
+  errorClass: "poup__input-error_active",
+};
+
+const showInputError = (formElement, inputElement, errorMessage, config) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.add(config.inputErrorClass);
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add(config.errorClass);
+};
+
+const hideInputError = (formElement, inputElement, config) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove(config.inputErrorClass);
+  errorElement.textContent = "";
+  errorElement.classList.remove(config.errorClass);
+};
+
+const isValid = (formElement, inputElement, config) => {
+  if (!inputElement.validity.valid) {
+    showInputError(
+      formElement,
+      inputElement,
+      inputElement.validationMessage,
+      config
+    );
+  } else {
+    hideInputError(formElement, inputElement, config);
+  }
+};
+
+const hasInavalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+};
+
+const toggleButtonState = (inputList, buttonElement, config) => {
+  if (hasInavalidInput(inputList)) {
+    buttonElement.classList.add(config.inactiveButtonClass);
+    buttonElement.disabled = true;
+  } else {
+    buttonElement.classList.remove(config.inactiveButtonClass);
+    buttonElement.disabled = false;
+  }
+};
+
+const setEventListener = (formElement, config) => {
+  const inputList = Array.from(
+    formElement.querySelectorAll(config.inputSelector)
+  );
+  const buttonElement = formElement.querySelector(config.submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, config);
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener("input", () => {
+      toggleButtonState(inputList, buttonElement, config);
+      isValid(formElement, inputElement, config);
+    });
+  });
+};
+
+const enableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  formList.forEach((formElement) => {
+    formElement.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+    });
+    setEventListener(formElement, config);
+  });
+};
+
+const removeEventListener = (formElement, config) => {
+  const inputList = Array.from(
+    formElement.querySelectorAll(config.inputSelector)
+  );
+  const buttonElement = formElement.querySelector(config.submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, config);
+  inputList.forEach((inputElement) => {
+    inputElement.removeEventListener("input", () => {
+      toggleButtonState(inputList, buttonElement, config);
+      isValid(formElement, inputElement, config);
+    });
+    hideInputError(formElement, inputElement, config);
+  });
+};
+
+const disableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  formList.forEach((formElement) => {
+    removeEventListener(formElement, config);
+  });
+};
+
+
+//попап аватар
+const popUpAvatar = document.querySelector(".popup_value_avatar");
+const popUpAvatarOpen = profile.querySelector(".profile__avatar-hover");
+const popUpAvatarClose = popUpAvatar.querySelector(".popup__close-button");
+const popUpAvatarCreate = popUpAvatar.querySelector(".popup__save-button");
+const formAvatar = popUpAvatar.querySelector(".popup__form");
+
+const valueAvatar = popUpAvatar.querySelector('.popup__item_el_avatar');
+const Avatar = profile.querySelector(".profile__avatar");
+
+//Работаем с попапом аватар
+popUpAvatarOpen.addEventListener("click", () => {
+  formAvatar.reset();
+  openPopup(popUpAvatar);
+});
+popUpAvatarClose.addEventListener("click", () => {
+  closePopup();
+});
+
+
+function createAvatar(link) {
+ Avatar.src = link;
+}
+
+
+function addNewAvatar(evt) {
+  evt.preventDefault();
+  createAvatar(valueAvatar.value);
+  console.log(valueAvatar.value)
+  closePopup();
+}
+
+popUpAvatar.addEventListener('submit', addNewAvatar);
