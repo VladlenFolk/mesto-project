@@ -7,4 +7,4 @@
 В этом проекте мы освоили создание pop up, познакомились с языком программирования java script, а также научились работать с DOM элементами.
 
 **Ссылка на проект**
-https://vladlenfolk.github.io/mesto-project/index.html
+https://vladlenfolk.github.io/mesto
