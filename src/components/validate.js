@@ -1,0 +1,97 @@
+//показываем валидацию
+const showInputError = (formElement, inputElement, errorMessage, config) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.add(config.inputErrorClass);
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add(config.errorClass);
+};
+
+//убираем валидацию
+const hideInputError = (formElement, inputElement, config) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove(config.inputErrorClass);
+  errorElement.textContent = "";
+  errorElement.classList.remove(config.errorClass);
+};
+
+//проверяем инпуты и показываем либо прячем валидацию
+const isValid = (formElement, inputElement, config) => {
+  if (!inputElement.validity.valid) {
+    showInputError(
+      formElement,
+      inputElement,
+      inputElement.validationMessage,
+      config
+    );
+  } else {
+    hideInputError(formElement, inputElement, config);
+  }
+};
+
+//
+const hasInavalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+};
+
+//убираем или добавляем модификаторы кнопки, а также параметр disabled в зависимости от проверки
+const toggleButtonState = (inputList, buttonElement, config) => {
+  if (hasInavalidInput(inputList)) {
+    buttonElement.classList.add(config.inactiveButtonClass);
+    buttonElement.disabled = true;
+  } else {
+    buttonElement.classList.remove(config.inactiveButtonClass);
+    buttonElement.disabled = false;
+  }
+};
+
+//функция, которая будет отслеживать валидацию при введении данных
+const setEventListener = (formElement, config) => {
+  const inputList = Array.from(
+    formElement.querySelectorAll(config.inputSelector)
+  );
+  const buttonElement = formElement.querySelector(config.submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, config);
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener("input", () => {
+      toggleButtonState(inputList, buttonElement, config);
+      isValid(formElement, inputElement, config);
+    });
+  });
+};
+
+//функция включения валидации
+export const enableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  formList.forEach((formElement) => {
+    formElement.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+    });
+    setEventListener(formElement, config);
+  });
+};
+
+//функция, которая убирает слушатели при введении данных
+const removeEventListener = (formElement, config) => {
+  const inputList = Array.from(
+    formElement.querySelectorAll(config.inputSelector)
+  );
+  const buttonElement = formElement.querySelector(config.submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, config);
+  inputList.forEach((inputElement) => {
+    inputElement.removeEventListener("input", () => {
+      toggleButtonState(inputList, buttonElement, config);
+      isValid(formElement, inputElement, config);
+    });
+    hideInputError(formElement, inputElement, config);
+  });
+};
+
+//функция выключения валидации
+export const disableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  formList.forEach((formElement) => {
+    removeEventListener(formElement, config);
+  });
+};
