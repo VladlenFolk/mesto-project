@@ -2,13 +2,11 @@ import { openPopup, closePopup } from "./modal";
 //Переменные template и места добавления карточек
 const popUpPlace = document.querySelector(".popup_value_place");
 const blockTemplate = document.querySelector("#block").content;
-
 const blockList = document.querySelector(".block__list");
 
 //переменные для попапа с картинкой
 const popUpImage = document.querySelector(".popup_value_image");
 const popUpImageOpen = popUpImage.querySelector(".popup__picture");
-
 const popUpImageDescription = popUpImage.querySelector(".popup__description");
 
 //Добавления массива с названием и картинкой карточки
