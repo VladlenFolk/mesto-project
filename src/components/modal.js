@@ -14,16 +14,7 @@ function closePopupOnEsc(evt) {
   }
 }
 
-//проверяем открыт ли попап
-function isPopupOpened() {
-  popups.forEach((el) => {
-    if (el.classList.contains("popup_opened")) {
-      el.classList.remove("popup_opened");
-      document.removeEventListener("keydown", closePopupOnEsc);
-      document.removeEventListener("click", closePopupOnOverlay);
-    }
-  });
-}
+
 
 //универсальные функции открытия/закрытия попапа
 export function openPopup(popupName) {
@@ -32,8 +23,15 @@ export function openPopup(popupName) {
   document.addEventListener("click", closePopupOnOverlay);
 }
 
+//функция закрытия попапа
 export function closePopup() {
-  isPopupOpened();
+  popups.forEach((el) => {
+    if (el.classList.contains("popup_opened")) {
+      el.classList.remove("popup_opened");
+      document.removeEventListener("keydown", closePopupOnEsc);
+      document.removeEventListener("click", closePopupOnOverlay);
+    }
+  });
 }
 
 

@@ -4,10 +4,13 @@ const popUpPlace = document.querySelector(".popup_value_place");
 const blockTemplate = document.querySelector("#block").content;
 const blockList = document.querySelector(".block__list");
 
+
 //переменные для попапа с картинкой
 const popUpImage = document.querySelector(".popup_value_image");
 const popUpImageOpen = popUpImage.querySelector(".popup__picture");
 const popUpImageDescription = popUpImage.querySelector(".popup__description");
+const valuePlace = popUpPlace.querySelector(".popup__item_el_place");
+const valueLink = popUpPlace.querySelector(".popup__item_el_link");
 
 //Добавления массива с названием и картинкой карточки
 export const initialCards = [
@@ -50,11 +53,9 @@ function deleteCard(item) {
 
 //Функция добавления попапа с картинкой
 function openImg(name, link) {
-  const imgDescription = popUpImageDescription;
-  const imgLink = popUpImageOpen;
-  imgDescription.textContent = name;
-  imgLink.src = link;
-  imgLink.alt = name;
+  popUpImageDescription.textContent = name;
+  popUpImageOpen.src = link;
+  popUpImageOpen.alt = name;
   openPopup(popUpImage);
 }
 
@@ -89,8 +90,6 @@ export function renderCard(name, link) {
 //Функция добавления новой картинки из данных формы
 export function addNewCard(evt) {
   evt.preventDefault();
-  const valuePlace = popUpPlace.querySelector(".popup__item_el_place");
-  const valueLink = popUpPlace.querySelector(".popup__item_el_link");
   renderCard(valuePlace.value, valueLink.value);
   closePopup();
 }
