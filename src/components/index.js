@@ -22,12 +22,14 @@ const profileSaveBtn = popUpProfile.querySelector(".popup__save-button");
 //Переменные template и места добавления карточек
 const popUpPlace = document.querySelector(".popup_value_place");
 const formPlace = popUpPlace.querySelector(".popup__form_type_place");
+const btnPlace = popUpPlace.querySelector(".popup__save-button");
+const valuePlace = popUpPlace.querySelector(".popup__item_el_place");
+const valueLink = popUpPlace.querySelector(".popup__item_el_link");
 
 //Кнопки открытия и закрытия
-const closeProfileButton = popUpProfile.querySelector(".popup__close-button");
 const openProfileButton = profile.querySelector(".profile__edit-button");
-const closeButtonPlace = popUpPlace.querySelector(".popup__close-button");
 const openButtonPlace = profile.querySelector(".profile__add-button");
+const closeButtons = document.querySelectorAll('.popup__close-button');
 
 //переменные для попапа с картинкой
 const popUpImage = document.querySelector(".popup_value_image");
@@ -36,7 +38,7 @@ const popUpImageCloseButton = popUpImage.querySelector(".popup__close-button");
 //попап аватар
 const popUpAvatar = document.querySelector(".popup_value_avatar");
 const popUpAvatarOpen = profile.querySelector(".profile__avatar-hover");
-const popUpAvatarClose = popUpAvatar.querySelector(".popup__close-button");
+const valueAvatar = popUpAvatar.querySelector(".popup__item_el_avatar");
 const formAvatar = popUpAvatar.querySelector(".popup__form");
 const avatar = profile.querySelector(".profile__avatar");
 const avatarSaveBtn = popUpAvatar.querySelector(".popup__save-button");
@@ -65,12 +67,14 @@ Promise.all([getInitialCards(), getUserData()])
     console.log(error);
   });
 
+// Слушатель на кнопки закрытия попапов
+closeButtons.forEach((button) => {
+  button.addEventListener('click', () => closePopup());
+});
+
 //функция добавления новой карточки
 function addNewCard(evt) {
   evt.preventDefault();
-  const btnPlace = popUpPlace.querySelector(".popup__save-button");
-  const valuePlace = popUpPlace.querySelector(".popup__item_el_place");
-  const valueLink = popUpPlace.querySelector(".popup__item_el_link");
   btnPlace.textContent = "Добавление...";
   const cardItem = {
     name: valuePlace.value,
@@ -123,22 +127,18 @@ function editSubmitForm(event) {
 function editProfile() {
   valueProfileName.value = profileName.textContent;
   valueProfileJob.value = profileJob.textContent;
-  disableValidation(validationConfiguration);
+  disableValidation(popUpProfile ,validationConfiguration);
   openPopup(popUpProfile, validationConfiguration);
 }
 
-//Слушатели открытия/закрытия и отправки попапа профиля
+//Слушатели открытия и отправки попапа профиля
 openProfileButton.addEventListener("click", editProfile);
-closeProfileButton.addEventListener("click", () => {
-  closePopup();
-});
 popUpProfile.addEventListener("submit", editSubmitForm);
 
 //функция отправки аватара на сервер
 function changeAvatarEdit(evt) {
   evt.preventDefault();
   avatarSaveBtn.textContent = "Сохрание...";
-  const valueAvatar = popUpAvatar.querySelector(".popup__item_el_avatar");
   changeAvatar(valueAvatar.value)
     .then((res) => {
       avatar.src = res.avatar;
@@ -153,24 +153,19 @@ function changeAvatarEdit(evt) {
     });
 }
 
-//Открытие/закрытие/отправка формы с аватаром
+//Открытие и отправка формы с аватаром
 popUpAvatarOpen.addEventListener("click", () => {
   formAvatar.reset();
+  disableValidation(popUpAvatar, validationConfiguration);
   openPopup(popUpAvatar, validationConfiguration);
-});
-popUpAvatarClose.addEventListener("click", () => {
-  closePopup();
 });
 popUpAvatar.addEventListener("submit", changeAvatarEdit);
 
-// Слушатель закрытия/открытия и отправки попапа место
+// Слушатель открытия и отправки попапа место
 openButtonPlace.addEventListener("click", () => {
   formPlace.reset(); //очищаем форму при каждом открытии
-  disableValidation(validationConfiguration);
+  disableValidation(popUpPlace, validationConfiguration);
   openPopup(popUpPlace, validationConfiguration);
-});
-closeButtonPlace.addEventListener("click", () => {
-  closePopup();
 });
 popUpPlace.addEventListener("submit", addNewCard);
 

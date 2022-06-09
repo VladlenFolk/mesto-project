@@ -1,7 +1,4 @@
-import { disableValidation } from "./validate.js";
-
 //переменные попапа профиль
-
 const popups = document.querySelectorAll(".popup");
 
 //Функция закрытия попапа по клику вне модального окна
@@ -19,19 +16,14 @@ function closePopupOnEsc(evt) {
 }
 
 //универсальные функции открытия/закрытия попапа
-export function openPopup(popupName, config) {
-  disableValidation(config);
+export function openPopup(popupName) {
   popupName.classList.add("popup_opened");
   document.addEventListener("keydown", closePopupOnEsc);
   document.addEventListener("click", closePopupOnOverlay);
 }
 
+//функция закрытия попапа
 export function closePopup() {
-  isPopupOpened();
-}
-
-//проверяем открыт ли попап
-function isPopupOpened() {
   popups.forEach((el) => {
     if (el.classList.contains("popup_opened")) {
       el.classList.remove("popup_opened");

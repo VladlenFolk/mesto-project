@@ -28,16 +28,16 @@ const isValid = (formElement, inputElement, config) => {
   }
 };
 
-//
-const hasInavalidInput = (inputList) => {
-  return inputList.some((inputElement) => {
+//если хотя бы в одном импуте ошибка возвращаем false в параметр валидации validity.valid
+const hasInvalidInput = (inputElements) => {
+  return inputElements.some((inputElement) => {
     return !inputElement.validity.valid;
   });
 };
 
 //убираем или добавляем модификаторы кнопки, а также параметр disabled в зависимости от проверки
-const toggleButtonState = (inputList, buttonElement, config) => {
-  if (hasInavalidInput(inputList)) {
+const toggleButtonState = (inputElements, buttonElement, config) => {
+  if (hasInvalidInput(inputElements)) {
     buttonElement.classList.add(config.inactiveButtonClass);
     buttonElement.disabled = true;
   } else {
@@ -72,26 +72,13 @@ export const enableValidation = (config) => {
   });
 };
 
-//функция, которая убирает слушатели при введении данных
-const removeEventListener = (formElement, config) => {
-  const inputList = Array.from(
-    formElement.querySelectorAll(config.inputSelector)
-  );
-  const buttonElement = formElement.querySelector(config.submitButtonSelector);
-  toggleButtonState(inputList, buttonElement, config);
-  inputList.forEach((inputElement) => {
-    inputElement.removeEventListener("input", () => {
-      toggleButtonState(inputList, buttonElement, config);
-      isValid(formElement, inputElement, config);
-    });
+//функция выключения валидации при (открытии окна прячем оставшиеся ошибки)
+export const disableValidation = ( formElement, config) => { 
+  const inputList = Array.from( 
+    formElement.querySelectorAll(config.inputSelector));
+    const buttonElement = formElement.querySelector(config.submitButtonSelector);
+    toggleButtonState(inputList, buttonElement,  config); 
+    inputList.forEach((inputElement) => {
     hideInputError(formElement, inputElement, config);
-  });
-};
-
-//функция выключения валидации
-export const disableValidation = (config) => {
-  const formList = Array.from(document.querySelectorAll(config.formSelector));
-  formList.forEach((formElement) => {
-    removeEventListener(formElement, config);
   });
 };

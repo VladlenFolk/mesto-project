@@ -8,11 +8,12 @@ const blockTemplate = document.querySelector("#block").content;
 
 //переменные для попапа с картинкой
 const popUpImage = document.querySelector(".popup_value_image");
+const popUpImageOpen = popUpImage.querySelector(".popup__picture");
+const popUpImageDescription = popUpImage.querySelector(".popup__description");
+const blockList = document.querySelector(".block__list");
 
-
-
+//функция добавления карточки в начало
 export function addCardToStart(card) {
-  const blockList = document.querySelector(".block__list");
   blockList.prepend(card);
 }
 
@@ -46,7 +47,7 @@ export function createNewCards(card, userData) {
   return cardElement;
 }
 
-//Проверяем кто влад
+//Проверяем кто владелец
 function whoOwnerCard(btnDelete, card, userData) {
   if (card.owner._id !== userData._id) {
     btnDelete.classList.add("block__trash_hidden");
@@ -96,11 +97,8 @@ function deleteCards(event) {
 
 //функция открытия попапа с картинкой
 function openImg(card) {
-  const popUpImageOpen = popUpImage.querySelector(".popup__picture");
-  const popUpImageDescription = popUpImage.querySelector(".popup__description");
   popUpImageOpen.src = card.link;
   popUpImageOpen.alt = card.name;
   popUpImageDescription.textContent = card.name;
-  disableValidation(validationConfiguration);
   openPopup(popUpImage, validationConfiguration);
 }
