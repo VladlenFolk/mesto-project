@@ -9,4 +9,4 @@
 
 
 **Ссылка на проект**
-https://VladlenFolk.github.io/mesto-project
+https://VladlenFolk.github.io/mesto-project/index.html
