@@ -51,7 +51,7 @@ export const validationConfiguration = {
   submitButtonSelector: ".popup__save-button",
   inactiveButtonClass: "popup__save-button_inactive",
   inputErrorClass: "popup__item_type_error",
-  errorClass: "poup__input-error_active",
+  errorClass: "popup__input-error_active",
 };
 
 //Создаем промис для отрисовки страницы
