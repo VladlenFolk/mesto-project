@@ -35,7 +35,7 @@ const closeButtons = document.querySelectorAll('.popup__close-button');
 const popUpImage = document.querySelector(".popup_value_image");
 const popUpImageCloseButton = popUpImage.querySelector(".popup__close-button");
 
-//попап аватар
+//попап  аватар
 const popUpAvatar = document.querySelector(".popup_value_avatar");
 const popUpAvatarOpen = profile.querySelector(".profile__avatar-hover");
 const valueAvatar = popUpAvatar.querySelector(".popup__item_el_avatar");
