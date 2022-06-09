@@ -7,13 +7,12 @@
     <meta name="author" content="Владлен Фалин" />
     <meta name="keyword" content="проект Место, Карачаевск, Эльбрус, Домбай" />
     <title>Mesto</title>
-    <link rel="stylesheet" href="pages/index.css" />
   </head>
   <body class="body">
     <div class="page">
       <header class="header">
         <img
-          src="images/logo1.svg"
+          src="<%=require('./images/logo1.svg')%>"
           alt="логотип проекта место"
           class="header__logo"
         />
@@ -22,7 +21,7 @@
         <section class="profile">
           <div class="profile__container">
             <div class="profile__avatar-hover">
-            <img class="profile__avatar" src="images/custo.jpg" alt="Аватар" />
+            <img class="profile__avatar" src="<%=require('./images/custo.jpg')%>" alt="Аватар" />
           </div>
             <div class="profile__info">
               <div class="profile__name-container">
@@ -119,6 +118,7 @@
                     name="description"
                     type="text"
                     value="Исследователь океана"
+                    placeholder="Чем занимаетесь?"
                     class="popup__item popup__item_el_job"
                     required
                     minlength="2"
@@ -206,6 +206,5 @@
         </div>
       </li>
     </template>
-    <script src="scripts/script.js"></script>
   </body>
 </html>

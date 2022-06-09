@@ -47,3 +47,5 @@
 @import url(../blocks/popup/__item/_type/popup__item_type_error.css);
 @import url(../blocks/profile/__avatar-hover/profile__avatar-hover.css);
 @import url(../blocks/block/__place-likes-quantity/block__place-likes-quantity.css);
+@import url(../blocks/block/__trash/_hidden/block__trash_hidden.css);
+
