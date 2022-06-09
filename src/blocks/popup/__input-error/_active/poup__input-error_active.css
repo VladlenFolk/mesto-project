@@ -1,0 +1,9 @@
+.poup__input-error_active{
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 26px;
+    left: 0;
+    font-size: 12px;
+    line-height: 14.52px;
+    color: #FF0000;
+}

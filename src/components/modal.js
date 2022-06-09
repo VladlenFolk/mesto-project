@@ -1,3 +1,4 @@
+//переменные попапа профиль
 const popups = document.querySelectorAll(".popup");
 
 //Функция закрытия попапа по клику вне модального окна
@@ -13,8 +14,6 @@ function closePopupOnEsc(evt) {
     closePopup();
   }
 }
-
-
 
 //универсальные функции открытия/закрытия попапа
 export function openPopup(popupName) {
@@ -33,5 +32,3 @@ export function closePopup() {
     }
   });
 }
-
-

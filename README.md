@@ -7,4 +7,4 @@
 В этом проекте мы освоили валидацию форм и собрали наш проект с помощью webpack.
 
 **Ссылка на проект**
-https://vladlenfolk.github.io/mesto-project/index.html
+https://vladlenfolk.github.io/mesto
