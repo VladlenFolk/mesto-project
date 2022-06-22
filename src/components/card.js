@@ -2,7 +2,7 @@ import Api from './ApiT';
 import { disableValidation } from "./validate";
 import { validationConfiguration } from "./index.js";
 import { openPopup } from "./modal";
-import { setLike, deleteLike} from "./api";
+import { setLike, deleteLike, deleteCard } from "./api";
 
 //Переменные template и места добавления карточек
 const blockTemplate = document.querySelector("#block").content;

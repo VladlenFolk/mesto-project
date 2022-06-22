@@ -17,7 +17,7 @@ export default class Api {
   getUserData() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
-    }).then((answ) => checkResponseServer(answ));
+    }).then((answ) => this._checkResponseServer(answ));
   }
 
   getInitialCards() {
@@ -74,7 +74,7 @@ export default class Api {
         name: data.name,
         link: data.link,
       }),
-    }).then((answ) => checkResponseServer(answ));
+    }).then((answ) => this._checkResponseServer(answ));
   }
 
   //удаляем карточку
