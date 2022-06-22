@@ -1,7 +1,8 @@
+import Api from './ApiT';
 import { disableValidation } from "./validate";
 import { validationConfiguration } from "./index.js";
 import { openPopup } from "./modal";
-import { setLike, deleteLike, deleteCard } from "./api";
+import { setLike, deleteLike} from "./api";
 
 //Переменные template и места добавления карточек
 const blockTemplate = document.querySelector("#block").content;
@@ -86,7 +87,15 @@ function haveLikes(evt, card, likesAmount) {
 function deleteCards(event) {
   const cardElement = event.target.closest(".list");
   const cardId = cardElement.getAttribute("data-id");
-  deleteCard(cardId)
+  const config = {
+    baseUrl: "https://nomoreparties.co/v1/plus-cohort-10",
+    headers: {
+      authorization: "37902dfd-5a6e-4faf-80b8-bf8cf2d76230",
+      "Content-Type": "application/json",
+    }
+  }
+  const api = new Api(config);
+  api.deleteCard(cardId)
     .then(() => {
       cardElement.remove();
     })
