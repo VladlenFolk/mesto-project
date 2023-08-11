@@ -4,7 +4,7 @@
 
 <p align="Left"> "Mesto" - это интерактивная страница, где пользователи могут публиковать фотографии и лайкать их.</p>
 [Открыть в браузере](http://VladlenFolk.github.io/mesto-project/)
-
+[Открыть в браузере](http://rochernikov.github.io/mesto-project/)
 ## Функционал:
 
 - Редактирование профиля
