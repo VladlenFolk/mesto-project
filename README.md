@@ -3,7 +3,7 @@
 ## Краткое описание:
 
 <p align="Left"> "Mesto" - это интерактивная страница, где пользователи могут публиковать фотографии и лайкать их.</p>
-[Открыть в браузере](https://VladlenFolk.github.io/mesto-project/)
+[Открыть в браузере](http://VladlenFolk.github.io/mesto-project/)
 
 ## Функционал:
 
@@ -32,8 +32,6 @@
 - HTML
 - CSS
 - JavaScript
-**Ссылка на проект**
-https://VladlenFolk.github.io/mesto-project/
 
 ## В конфигурационном файле package.json настроены три варианта запуска сборки проекта:
 
